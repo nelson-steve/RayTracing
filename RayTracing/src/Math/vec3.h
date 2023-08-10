@@ -46,20 +46,20 @@ namespace Math {
         return os;
     }
 
-    inline vec3& operator+(const vec3& vec1, const vec3& vec2) {
-        vec3(vec1[0] + vec2[0], vec1[1] + vec2[1], vec1[2] + vec2[2]);
+    inline vec3 operator+(const vec3& vec1, const vec3& vec2) {
+        return vec3(vec1[0] + vec2[0], vec1[1] + vec2[1], vec1[2] + vec2[2]);
     }
 
-    inline vec3& operator-(const vec3& vec1, const vec3& vec2) {
-        vec3(vec1[0] - vec2[0], vec1[1] - vec2[1], vec1[2] - vec2[2]);
+    inline vec3 operator-(const vec3& vec1, const vec3& vec2) {
+        return vec3(vec1[0] - vec2[0], vec1[1] - vec2[1], vec1[2] - vec2[2]);
     }
 
-    inline vec3& operator*(const vec3& vec1, const vec3& vec2) {
-        vec3(vec1[0] * vec2[0], vec1[1] * vec2[1], vec1[2] * vec2[2]);
+    inline vec3 operator*(const vec3& vec1, const vec3& vec2) {
+        return vec3(vec1[0] * vec2[0], vec1[1] * vec2[1], vec1[2] * vec2[2]);
     }
 
-    inline vec3& operator/(const vec3& vec1, const vec3& vec2) {
-        vec3(vec1[0] / vec2[0], vec1[1] / vec2[1], vec1[2] / vec2[2]);
+    inline vec3 operator/(const vec3& vec1, const vec3& vec2) {
+        return vec3(vec1[0] / vec2[0], vec1[1] / vec2[1], vec1[2] / vec2[2]);
     }
 
     inline vec3 operator*(float value, const vec3& vec) {

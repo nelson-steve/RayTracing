@@ -21,8 +21,10 @@
     <ClCompile Include="src\Math\vec3.h">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Math\vec3.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\ray.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

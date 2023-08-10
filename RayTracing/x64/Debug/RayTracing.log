@@ -1,7 +1,10 @@
 ﻿  Scanning sources for module dependencies...
-  vec3.cpp
-C:\dev\RayTracing\RayTracing\src\Math\vec3.cpp(86,28): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\dev\RayTracing\RayTracing\src\Math\vec3.cpp(90,54): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
   main.cpp
-  Generating Code...
+C:\dev\RayTracing\RayTracing\src\Math\vec3.h(120,28): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\dev\RayTracing\RayTracing\src\Math\vec3.h(124,54): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\dev\RayTracing\RayTracing\src\ray.h(7,25): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\dev\RayTracing\RayTracing\src\main.cpp(9,10): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\dev\RayTracing\RayTracing\src\main.cpp(10,14): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\dev\RayTracing\RayTracing\src\main.cpp(27,39): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\dev\RayTracing\RayTracing\src\main.cpp(27,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   RayTracing.vcxproj -> C:\dev\RayTracing\x64\Debug\RayTracing.exe

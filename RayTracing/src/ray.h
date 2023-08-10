@@ -3,6 +3,10 @@
 #include "Math/vec3.h"
 using namespace Math;
 
+vec3 unit_vector(const vec3& vec) {
+	return vec / vec.length();
+}
+
 class ray {
 public:
 	ray() {}

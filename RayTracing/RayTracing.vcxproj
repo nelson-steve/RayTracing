@@ -130,8 +130,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\Math\vec3.cpp" />
     <ClCompile Include="src\Math\vec3.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\ray.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
