@@ -62,15 +62,15 @@ namespace Math {
         return vec3(vec1[0] / vec2[0], vec1[1] / vec2[1], vec1[2] / vec2[2]);
     }
 
-    inline vec3 operator*(float value, const vec3& vec) {
+    inline vec3 operator*(real value, const vec3& vec) {
         return vec3(value * vec[0], value * vec[1], value * vec[2]);
     }
 
-    inline vec3 operator*(const vec3& vec, float value) {
+    inline vec3 operator*(const vec3& vec, real value) {
         return vec3(value * vec[0], value * vec[1], value * vec[2]);
     }
 
-    inline vec3 operator/(const vec3& vec, float value) {
+    inline vec3 operator/(const vec3& vec, real value) {
         return vec3(vec[0] / value, vec[1] / value, vec[2] / value);
     }
 
@@ -120,7 +120,7 @@ namespace Math {
         return v / v.length();
     }
 
-    inline float dot(const vec3& vec1, const vec3& vec2) {
+    inline real dot(const vec3& vec1, const vec3& vec2) {
         return vec1[0] * vec2[0] + vec1[1] * vec2[1] + vec1[2] * vec2[2];
     }
 

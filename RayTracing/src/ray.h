@@ -14,7 +14,7 @@ public:
 
 	vec3 origin() const { return m_posA; }
 	vec3 direction() const { return m_posB; }
-	vec3 point_at_parameter(float t) const { return m_posA + t * m_posB; }
+	vec3 point_at_parameter(real t) const { return m_posA + t * m_posB; }
 private:
 	vec3 m_posA, m_posB;
 };
