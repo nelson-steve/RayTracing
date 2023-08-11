@@ -10,16 +10,28 @@
 #include <cfloat>
 #include <random>
 
+vec3 random_in_unit_sphere() {
+	vec3 p;
+	do {
+		real random_number_x = ((real)rand() / (RAND_MAX));
+		real random_number_y = ((real)rand() / (RAND_MAX));
+		real random_number_z = ((real)rand() / (RAND_MAX));
+		//std::cout << "x: " << random_number_x << " y: " << random_number_y << " z: " << random_number_z << std::endl;
+		p = 2.0 * vec3(random_number_x, random_number_y, random_number_z) - vec3(1, 1, 1);
+	} while (p.squared_length() >= 1.0);
+	return p;
+}
+
 Math::vec3 color(const ray& r, hitable* world) {
 	hit_record rec;
-	if (world->hit(r, 0.0, FLT_MAX, rec)) {
-		return 0.5 * vec3(rec.normal.x() + 1, rec.normal.y() + 1, rec.normal.z() + 1);
+	if (world->hit(r, 0.0001f, FLT_MAX, rec)) {
+		vec3 target = rec.p + rec.normal + random_in_unit_sphere();
+		return 0.5 * color(ray(rec.p, target - rec.p), world);
 	}
 	else {
 		vec3 unit_direction = unit_vector(r.direction());
 		real t = 0.5f * (unit_direction.y() + 1.0f);
 		return (1.0f - t) * vec3(1.0f, 1.0f, 1.0f) + t * vec3(0.5f, 0.7f, 1.0f);
-
 	}
 }
 
@@ -40,7 +52,8 @@ int main(int argc, char** argv[]) {
 	if (img.is_open()) {
 		img << "P3" << std::endl << nx << " " << ny << std::endl << "255" << std::endl;
 		for (int j = ny - 1; j >= 0; j--) {
-			for (int i = 0; i < nx; i++) {
+			//std::cout << "progress\n";
+;			for (int i = 0; i < nx; i++) {
 				vec3 col(0, 0, 0);
 				for (int s = 0; s < ns; s++) {
 					real random_number = ((real)rand() / (RAND_MAX)) + 1;
@@ -52,6 +65,7 @@ int main(int argc, char** argv[]) {
 					col += color(r, world);
 				}
 				col /= real(ns);
+				col = vec3(sqrt(col[0]), sqrt(col[1]), sqrt(col[2]));
 				int ir = int(255.99 * col[0]);
 				int ig = int(255.99 * col[1]);
 				int ib = int(255.99 * col[2]);
