@@ -29,8 +29,8 @@ namespace Math {
 		inline vec3& operator*=(const real value);
 		inline vec3& operator/=(const real value);
 
-		inline real length() const { return sqrt(m_vec[0] * m_vec[0] + m_vec[1] * m_vec[1] + m_vec[2] * m_vec[2]); }
-		inline real squared_length() const { return m_vec[0] * m_vec[0] + m_vec[1] * m_vec[1] + m_vec[2] * m_vec[2]; }
+        inline real length() const { return sqrt(m_vec[0] * m_vec[0] + m_vec[1] * m_vec[1] + m_vec[2] * m_vec[2]); }
+        inline real squared_length() const { return m_vec[0] * m_vec[0] + m_vec[1] * m_vec[1] + m_vec[2] * m_vec[2]; }
 		inline vec3 make_unit_vector(vec3& v);
 	private:
 		real m_vec[3];
@@ -110,9 +110,9 @@ namespace Math {
     }
 
     inline vec3& vec3::operator/=(const real value) {
-        m_vec[0] += value;
-        m_vec[1] += value;
-        m_vec[2] += value;
+        m_vec[0] /= value;
+        m_vec[1] /= value;
+        m_vec[2] /= value;
         return *this;
     }
 
