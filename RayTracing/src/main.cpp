@@ -44,8 +44,11 @@ int main(int argc, char** argv[]) {
 	list[4] = new sphere(vec3(-1, 0, -1), 0.5, new dielectric(1.5));
 	list[5] = new sphere(vec3(0, 0.0, -1), 0.5, new lambertian(vec3(0.5, 0.0, 0.5)));
 	hitable* world = new hitable_list(list, 6);
-	camera cam(vec3(0, 1, 0), vec3(0, 0, -1), vec3(0, 1, 0), 90, real(nx) / real(ny));	
-	
+	vec3 lookfrom(3, 3, 2);
+	vec3 lookat(0, 0, -1);
+	real dist_to_focus = (lookfrom - lookat).length();
+	real aperture = 2.0;
+	camera cam(lookfrom, lookat, vec3(0, 1, 0), 20, real(nx) / real(ny), aperture, dist_to_focus);
 	if (img.is_open()) {
 		img << "P3" << std::endl << nx << " " << ny << std::endl << "255" << std::endl;
 		for (int j = ny - 1; j >= 0; j--) {
