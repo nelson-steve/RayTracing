@@ -1,11 +1,12 @@
 #pragma once
 
-#include "ray.h"
+class material;
 
 struct hit_record {
 	real t;
 	vec3 p;
 	vec3 normal;
+	material* mtr_ptr;
 };
 
 class hitable {
