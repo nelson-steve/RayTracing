@@ -31,25 +31,20 @@ Math::vec3 color(const ray& r, hitable* world, int depth) {
 }
 
 int main(int argc, char** argv[]) {
-	int nx = 200;
-	int ny = 100;
-	int ns = 100;
+	int multiple = 1;
+	int nx = multiple * 200;
+	int ny = multiple * 100;
+	int ns = multiple * 100;
 	std::ofstream img("picture.ppm");
-	hitable* list[5];
-	list[0] = new sphere(vec3(0, 0, -1), 0.5, new lambertian(vec3(0.1, 0.2, 0.5)));
+	hitable* list[6];
+	list[0] = new sphere(vec3(0, 0, -2), 0.5, new lambertian(vec3(0.1, 0.2, 0.5)));
 	list[1] = new sphere(vec3(0, -100.5, -1), 100, new lambertian(vec3(0.8, 0.8, 0.0)));
 	list[2] = new sphere(vec3(1, 0, -1), 0.5, new metal(vec3(0.8, 0.6, 0.2)));
 	list[3] = new sphere(vec3(-1, 0, -1), 0.5, new dielectric(1.5));
 	list[4] = new sphere(vec3(-1, 0, -1), 0.5, new dielectric(1.5));
-	hitable* world = new hitable_list(list, 5);
-
-	//real R = cos(M_PI / 4);
-	//list[0] = new sphere(vec3(-R, 0, -1), R, new lambertian(vec3(0, 0, 1)));
-	//list[1] = new sphere(vec3(R, 0, -1), R, new lambertian(vec3(1, 0, 0)));
-	//list[2] = new sphere(vec3(0, -100.5, -1), 100, new lambertian(vec3(0.8, 0.8, 0.0)));
-	//hitable* world = new hitable_list(list, 3);
-	camera cam(vec3(-2, 2, 1), vec3(0, 0, 1), vec3(0, 1, 0), 90, real(nx) / real(ny));
-	
+	list[5] = new sphere(vec3(0, 0.0, -1), 0.5, new lambertian(vec3(0.5, 0.0, 0.5)));
+	hitable* world = new hitable_list(list, 6);
+	camera cam(vec3(0, 1, 0), vec3(0, 0, -1), vec3(0, 1, 0), 90, real(nx) / real(ny));	
 	
 	if (img.is_open()) {
 		img << "P3" << std::endl << nx << " " << ny << std::endl << "255" << std::endl;

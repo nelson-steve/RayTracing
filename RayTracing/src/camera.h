@@ -1,7 +1,8 @@
 #pragma once
 
 #include "ray.h"
-#define M_PI 3.14159265358979323846
+#define _USE_MATH_DEFINES
+#include <math.h>
 
 class camera {
 public:
@@ -13,7 +14,7 @@ public:
 		m_origin = lookfrom;
 		w = unit_vector(lookfrom - lookat);
 		u = unit_vector(cross(vup, w));
-		w = cross(w, u);
+		v = cross(w, u);
 		m_lower_left_corner = vec3(-half_width, -half_height, -1.0);
 		m_lower_left_corner = m_origin - half_width * u - half_height * v - w;
 		m_horizontal = 2 * half_width * u;
