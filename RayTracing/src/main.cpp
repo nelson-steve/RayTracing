@@ -35,16 +35,13 @@ int main(int argc, char** argv[]) {
 	int ny = 100;
 	int ns = 100;
 	std::ofstream img("picture.ppm");
-	//vec3 lower_left_corner(-2.0f, -1.0f, -1.0f);
-	//vec3 horizontal(4.0f, 0.0f, 0.0f);
-	//vec3 vertical(0.0f, 2.0f, 0.0f);
-	//vec3 origin(0.0f, 0.0f, 0.0f);
-	hitable* list[4];
+	hitable* list[5];
 	list[0] = new sphere(vec3(0, 0, -1), 0.5, new lambertian(vec3(0.8, 0.3, 0.3)));
 	list[1] = new sphere(vec3(0, -100.5, -1), 100, new lambertian(vec3(0.8, 0.8, 0.0)));
 	list[2] = new sphere(vec3(1, 0, -1), 0.5, new metal(vec3(0.8, 0.6, 0.2)));
-	list[3] = new sphere(vec3(-1, 0, -1), 0.5, new metal(vec3(0.8, 0.8, 0.8)));
-	hitable* world = new hitable_list(list, 4);
+	list[3] = new sphere(vec3(-1, 0, -1), 0.5, new dielectric(1.5));
+	list[4] = new sphere(vec3(-1, 0, -1), -0.45, new dielectric(1.5));
+	hitable* world = new hitable_list(list, 5);
 	camera cam;
 	if (img.is_open()) {
 		img << "P3" << std::endl << nx << " " << ny << std::endl << "255" << std::endl;
